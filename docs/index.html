@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>USA Swimming Officials — Situations &amp; Resolutions</title>
+  <meta name="description" content="Static GitHub Pages study app for USA Swimming Officials Situations & Resolutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar card">
+      <div class="sidebar__brand">
+        <a href="https://www.usaswimming.org/" target="_blank" rel="noreferrer" aria-label="USA Swimming">
+          <img src="./USA_Swimming_Logo.svg" alt="USA Swimming logo" class="sidebar__logo">
+        </a>
+        <div>
+          <p class="eyebrow">Built from upstream work by gduryee</p>
+          <h1>Situations &amp; Resolutions</h1>
+          <p class="muted">Stroke &amp; Turn study tool</p>
+        </div>
+      </div>
+
+      <section class="sidebar__section">
+        <h2>Study mode</h2>
+        <div class="mode-list" id="modeList" role="tablist" aria-label="Study modes"></div>
+      </section>
+
+      <section class="sidebar__section">
+        <h2>Options</h2>
+        <label class="toggle-row" for="hideResolution">
+          <span>Hide resolution</span>
+          <input id="hideResolution" type="checkbox">
+        </label>
+
+        <label class="field-label" for="fontSize">Font size</label>
+        <div class="slider-row">
+          <input id="fontSize" type="range" min="14" max="36" step="1" value="18">
+          <output id="fontSizeValue" for="fontSize">18px</output>
+        </div>
+      </section>
+
+      <section class="sidebar__section links-section">
+        <h2>Resources</h2>
+        <a href="https://websiteprodcoresa.blob.core.windows.net/sitefinity/docs/default-source/governance/governance-lsc-website/rules_policies/rulebooks/2026-rulebook.pdf" target="_blank" rel="noreferrer">2026 USA Swimming Rulebook</a>
+        <a href="https://www.usaswimming.org/docs/default-source/officialsdocuments/officials-training-resources/situations-and-resolutions/situations-and-resolutions-stroke-and-turn.pdf" target="_blank" rel="noreferrer">Mar. 2025 Situations &amp; Resolutions PDF</a>
+        <a href="https://www.pns.org/page/home" target="_blank" rel="noreferrer">Pacific Northwest Swimming</a>
+        <a href="https://github.com/gduryee/Situations_Resolutions" target="_blank" rel="noreferrer">Upstream repository by gduryee</a>
+      </section>
+    </aside>
+
+    <main class="content">
+      <header class="hero card">
+        <div class="hero__text">
+          <p class="eyebrow">USA Swimming Officials</p>
+          <h2>Situations &amp; Resolutions</h2>
+          <p class="hero__subtitle">Client-side GitHub Pages edition with sequential review, shuffle, keyword search, and direct number lookup.</p>
+        </div>
+        <div class="hero__meta">
+          <span class="pill" id="datasetCount">Loading…</span>
+        </div>
+      </header>
+
+      <section class="controls card">
+        <div id="statusBar" class="status-bar"></div>
+        <div id="modeControls" class="controls-grid"></div>
+      </section>
+
+      <section class="card result-panel">
+        <div id="emptyState" class="empty-state">
+          <h3>Loading data…</h3>
+          <p>Please wait while the study deck is prepared.</p>
+        </div>
+
+        <article id="resultCard" class="result-card hidden" aria-live="polite">
+          <div class="result-card__header">
+            <div>
+              <p class="eyebrow" id="cardSectionLabel"></p>
+              <h3 id="cardNumberLabel"></h3>
+            </div>
+            <button id="copyLinkButton" class="button button--ghost" type="button">Copy deep link</button>
+          </div>
+
+          <section class="result-block">
+            <h4>Situation</h4>
+            <p id="situationText" class="study-text"></p>
+          </section>
+
+          <section id="resolutionBlock" class="result-block">
+            <div class="resolution-header">
+              <h4>Recommended Resolution</h4>
+              <button id="revealButton" class="button hidden" type="button">Show Resolution</button>
+            </div>
+            <p id="resolutionText" class="study-text"></p>
+          </section>
+
+          <section class="result-block">
+            <h4>Applicable Rule</h4>
+            <p id="ruleText" class="rule-text"></p>
+          </section>
+        </article>
+      </section>
+
+      <footer class="footer card">
+        <p>© 2025 USA Swimming National Officials Committee, Version 03/07/2025.</p>
+        <p>Static GitHub Pages adaptation based on work by <a href="https://github.com/gduryee" target="_blank" rel="noreferrer">gduryee</a> and the upstream <a href="https://github.com/gduryee/Situations_Resolutions" target="_blank" rel="noreferrer">Situations_Resolutions repository</a>.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
